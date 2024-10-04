@@ -4,6 +4,7 @@
 %--------------- Required Packages ------------------
 \RequirePackage{exsheets}
 \RequirePackage{fancyhdr}
+\RequirePackage{amsmath}
 
 
 %--------------- Exam Information ------------------
@@ -12,33 +13,42 @@
 \newcommand{\GetExamUnit}{Unit 0}
 \newcommand{\GetExamLength}{50 minutes}
 \newcommand{\GetNumberOfVersions}{2}
-\newcommand{\GetVersion}{1}
+\newcommand{\GetVersionNumber}{1}
+\newcommand{\GetVersionID}{A}
 
 \newcommand{\SetCourse}[1]{\renewcommand{\GetCourse}{#1}}
 \newcommand{\SetTerm}[1]{\renewcommand{\GetTerm}{#1}}
 \newcommand{\SetExamUnit}[1]{\renewcommand{\GetExamUnit}{#1}}
 \newcommand{\SetExamLength}[1]{\renewcommand{\GetExamLength}{#1}}
 \newcommand{\SetNumberOfVersions}[1]{\renewcommand{\GetNumberOfVersions}{#1}}
-\newcommand{\SetVersion}[1]{\renewcommand{\GetVersion}{#1}}
+\newcommand{\SetVersionNumber}[1]{\renewcommand{\GetVersionNumber}{#1}}
+\newcommand{\SetVersionID}[1]{\renewcommand{\GetVersionID}{#1}}
 
 \SetVariations{\GetNumberOfVersions}
-\variant{\GetVersion}
+\variant{\GetVersionNumber}
 
+\definecolor{solution-color}{RGB}{0,0,255}
+\definecolor{rubric-color}{RGB}{255,0,0}
 
 %--------------- Headers and Page Style ------------------
-\pagestyle{fancy}
+\setlength{\oddsidemargin}{-.5in}
+\setlength{\evensidemargin}{-.5in}
+\setlength{\textwidth}{7.25in}
+\setlength{\textheight}{9.2in}
+\setlength{\topmargin}{-.5in}
 
-\if @twoside
-  \fancyhead[LE]{{\sc \GetCourse \ \GetTerm}}
-  \fancyhead[CE]{{\sc \GetExamUnit \ Exam}}
-  \fancyhead[RE]{{\sc Version \vary{A}{B}{C}{D}}}
-  \fancyhead[LO]{{\sc Name:}}
-\else
-  \fancyhead[L]{{\sc Name:}}
-\fi
+\fancypagestyle{exam-page-style}{
+  \if @twoside
+    \fancyhead[LE]{{\sc \GetCourse \ \GetTerm}}
+    \fancyhead[CE]{{\sc \GetExamUnit \ Exam}}
+    \fancyhead[RE]{{\sc Version \GetVersionID}}
+    \fancyhead[LO]{{\sc Name:}}
+  \else
+    \fancyhead[L]{{\sc Name:}}
+  \fi
+}
 
-\fancypagestyle{cover-page-style}
-{
+\fancypagestyle{cover-page-style}{
   \fancyhead[L]{\textsc{Name:} \underline{\hspace{2.2in}}}
   \fancyhead[C]{\hfil\textsc{Email:} \underline{\hspace{1.5in}}@school.domain.edu}
   \fancyhead[R]{Section: \underline{\hspace{.5in}}}
@@ -47,7 +57,7 @@
 
 
 %--------------- Questions and Solutions Style ------------------
-\DeclareInstance{exsheets-heading}{runin-nr-wp}{default}{
+\DeclareInstance{exsheets-heading}{exam-problems}{default}{
   runin = true,
   points-pre-code = [,
   points-post-code = ]\space,
@@ -59,8 +69,18 @@
 }
 
 \SetupExSheets{%
-  counter-format = qu.,%
-  headings = runin-nr-wp%
+  counter-format = qu.%
 }
 
+\SetupExSheets[question]{%
+  headings = exam-problems%
+}
 
+\SetupExSheets[solution]{%
+  headings = empty,%
+  pre-body-hook = {\color{solution-color}}%
+}
+
+\SetupExSheets[points]{%
+  name = pt/s%
+}

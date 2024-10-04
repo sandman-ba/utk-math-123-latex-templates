@@ -7,14 +7,18 @@
 %\SetTerm{Fall 2024} % Set the current term
 %\SetExamUnit{Unit 0} % Set the type of exam: Unit X, Final Exam, ...
 %\SetExamLength{50 minutes} % Set the length of the exam
-%\SetNumberOfVersions{2} % Set the number of different versions
-%\SetVersion{1} % Set the version that you want to compile
+
+%--------- Exam Versions and Solutions ---------
+\SetNumberOfVersions{2} % Set the number of different versions
+\SetVersionNumber{1} % Set the version number that you want to compile
+\SetVersionID{\vary{A}{B}} % Set the IDs of the version that you want to compile
+\SetupExSheets{solution/print=true} % Show solutions (true) or don't (false)
 
 \begin{document}
 
 \include{cover-page}
 
-\pagebreak
+\pagestyle{exam-page-style}
 
 \include{example-problems}
 

@@ -1,13 +1,13 @@
-\thispagestyle{firststyle}
+\thispagestyle{cover-page-style}
 
 \PrintSolutionsTF{%
   \begin{center}
-    \textsc{\GetTerm \ \GetCourse \ \GetExamUnit \ Exam - Version \vary{A}{B}{C}{D} \ (\color{blue}Key\color{black}/\color{red}Rubric\color{black})}\\
+    \textsc{\GetTerm \ \GetCourse \ \GetExamUnit \ Exam - Version \GetVersionID \ (\color{solution-color}Key\color{black}/\color{rubric-color}Rubric\color{black})}\\
     \footnotesize \GetExamLength \ - \pointssum* \ Points
   \end{center}
 }{%
   \begin{center}
-    \textsc{\GetTerm \ \GetCourse \ \GetExamUnit \ Exam - Version \vary{A}{B}{C}{D}}\\
+    \textsc{\GetTerm \ \GetCourse \ \GetExamUnit \ Exam - Version \GetVersionID}\\
     \footnotesize \GetExamLength \ - \pointssum* \ Points
   \end{center}
 }
@@ -37,59 +37,22 @@
 
 \noindent \textsc{Formulas}
 
-\begin{enumerate}[label=\textbf{\Alph*.}]
-\begin{minipage}{.3\textwidth}
-\item \(I=Prt\)\\
-\end{minipage}
-\begin{minipage}{.3\textwidth}
-\item \(A=P(1+rt)\)\\
-\end{minipage}
-\begin{minipage}{.3\textwidth}
-\item \(A=P(1+i)^n\), \(i=\frac{r}{m}\), \(n=mt\)\\
-\end{minipage}
-
-\bigskip 
-
-\begin{minipage}{.3\textwidth}
-\item \(r_{\text{eff}}=\left(1+\dfrac{r}{m}\right)^m - 1\)\\
-\end{minipage}
-\begin{minipage}{.3\textwidth}
-\item \(r_{\text{eff}} = \left(\dfrac{A}{P}\right)^{1/t} - 1\)\\
-\end{minipage}
-\begin{minipage}{.3\textwidth}
-\item \(S = R\left[\dfrac{(1+i)^n-1}{i} \right]\)\\
-\end{minipage}
-
-\bigskip 
-
-\begin{minipage}{.3\textwidth}
-\item \(P = R\left[\dfrac{1-(1+i)^{-n}}{i} \right]\)\\
-\end{minipage}
-\begin{minipage}{.6\textwidth}
-\item \(A^{-1} = \dfrac{1}{ad-bc}\begin{bmatrix} d & -b \\ -c & a\end{bmatrix}\) (if \(ad-bc\not=0\))\\
-\end{minipage}
-
-\bigskip 
-
-\begin{minipage}{.3\textwidth}
-\item \(p_1 = \dfrac{d-c}{a+d-b-c}\)\\
-\end{minipage}
-\begin{minipage}{.3\textwidth}
-\item \(q_1 = \dfrac{d-b}{a+d-b-c}\)\\
-\end{minipage}
-\begin{minipage}{.3\textwidth}
-\item \(E = \dfrac{ad-bc}{a+d-b-c}\)\\
-\end{minipage}
-
-\bigskip 
-
-\begin{minipage}{.3\textwidth}
-\item \(E = PAQ\)\\
-\end{minipage}
-\begin{minipage}{.3\textwidth}
-\item \(E = \dfrac{1}{Z}-k\)\\
-\end{minipage}
-\end{enumerate}
+\begin{tasks}(3)
+  \task[\textbf{A. }] \ \(I=Prt\)
+  \task[\textbf{B. }] \ \(A=P(1+rt)\)
+  \task[\textbf{C. }] \ \(A=P(1+i)^n\), \ \(i=\dfrac{r}{m}\), \ \(n=mt\)
+  \task[\textbf{D. }] \ \(r_{\text{eff}}=\left(1+\dfrac{r}{m}\right)^m - 1\)
+  \task[\textbf{E. }] \ \(r_{\text{eff}} = \left(\dfrac{A}{P}\right)^{1/t} - 1\)
+  \task[\textbf{F. }] \ \(S = R\left[\dfrac{(1+i)^n-1}{i} \right]\)
+  \task[\textbf{G. }] \ \(P = R\left[\dfrac{1-(1+i)^{-n}}{i} \right]\)
+  \task[\textbf{H. }] \ \(A^{-1} = \dfrac{1}{ad-bc}\begin{bmatrix} d & -b \\ -c & a\end{bmatrix}\)
+  \task[] \hspace{-.6in}(if \(ad-bc\not=0\))
+  \task[\textbf{I. }] \ \(p_1 = \dfrac{d-c}{a+d-b-c}\)
+  \task[\textbf{J. }] \ \(q_1 = \dfrac{d-b}{a+d-b-c}\)
+  \task[\textbf{K. }] \ \(E = \dfrac{ad-bc}{a+d-b-c}\)
+  \task[\textbf{L. }] \ \(E = PAQ\)
+  \task[\textbf{M. }] \ \(E = \dfrac{1}{Z}-k\)
+\end{tasks}
 
 \bigskip
 
@@ -101,3 +64,5 @@
 \noindent {\sc Pledged:} \ \rule{8.75 cm}{.01cm}\\
 
 \vfill
+
+\pagebreak
