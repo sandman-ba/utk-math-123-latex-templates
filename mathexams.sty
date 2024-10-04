@@ -5,6 +5,7 @@
 \RequirePackage{exsheets}
 \RequirePackage{fancyhdr}
 \RequirePackage{amsmath}
+\RequirePackage{geometry}
 
 
 %--------------- Exam Information ------------------
@@ -31,11 +32,15 @@
 \definecolor{rubric-color}{RGB}{255,0,0}
 
 %--------------- Headers and Page Style ------------------
-\setlength{\oddsidemargin}{-.5in}
-\setlength{\evensidemargin}{-.5in}
-\setlength{\textwidth}{7.25in}
-\setlength{\textheight}{9.2in}
-\setlength{\topmargin}{-.5in}
+\geometry{
+  letterpaper,
+  inner = 0.75in,
+  outer = 0.5in,
+  top = 1.0in,
+  marginparwidth = 0.75in,
+  textwidth = 7.25in,
+  textheight = 9.2in
+}
 
 \fancypagestyle{exam-page-style}{
   \if@twoside
@@ -84,3 +89,7 @@
 \SetupExSheets[points]{%
   name = pt/s%
 }
+
+% ------------ Rubric Notes ------------
+\newcommand{\rubric}[1]{\color{rubric-color}#1}
+\newcommand{\mrubric}[1]{\reversemarginpar\marginpar[\raggedleft\color{rubric-color}#1]{\raggedright\color{rubric-color}#1}}
