@@ -4,8 +4,12 @@
 %--------------- Required Packages ------------------
 \RequirePackage{exsheets}
 \RequirePackage{fancyhdr}
-\RequirePackage{amsmath}
 \RequirePackage{geometry}
+\RequirePackage{amsmath,amssymb}
+\RequirePackage{wasysym}
+\RequirePackage{mdframed}
+\RequirePackage{tikz}
+\RequirePackage{pgfplots}
 
 
 %--------------- Exam Information ------------------
@@ -93,3 +97,24 @@
 % ------------ Rubric Notes ------------
 \newcommand{\rubric}[1]{\color{rubric-color}#1}
 \newcommand{\mrubric}[1]{\reversemarginpar\marginpar[\raggedleft\color{rubric-color}#1]{\raggedright\color{rubric-color}#1}}
+
+% --------- Multiple Choice and Select All ---------
+\newcommand{\choice}{{\Large\(\Circle\)}}
+\newcommand{\correctchoice}{%
+  \PrintSolutionsTF{{\color{solution-color}\Large\(\CIRCLE\)}}{\choice}%
+}
+
+\newcommand{\selectall}{{\Large\(\Square\)}}
+\newcommand{\correctselectall}{%
+  \PrintSolutionsTF{{\color{solution-color}\Large\(\blacksquare\)}}{\selectall}%
+}
+
+% --------- Answer Box ---------
+\newcommand{\AnswerBox}[3]{%
+  \mdframed
+  \begin{centering}
+  #1\\
+  \PrintSolutionsTF{\vspace{0.1in} \color{solution-color}#3\\ \vspace{0.1in}}{\vspace{#2}}
+  \end{centering}
+  \endmdframed
+}
