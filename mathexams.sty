@@ -10,6 +10,7 @@
 \RequirePackage{mdframed}
 \RequirePackage{tikz}
 \RequirePackage{pgfplots}
+\RequirePackage{array}
 
 
 %--------------- Exam Information ------------------
@@ -123,3 +124,16 @@
 \newcommand{\tfinstructions}{Determine if the statement is True or False and fill in your answer choice completely.}
 \newcommand{\mcinstructions}{Multiple choice, fill in your choice completely.}
 \newcommand{\sainstructions}{Select all that apply and fill in your choices completely.}
+
+% --------- Augmented Matrix ---------
+\newenvironment{amatrix}[2]{%
+  \left[%
+    \begin{array}{@{}*{#1}{c}|*{#2}{c}@{}}
+}{%
+    \end{array}%
+  \right]
+}
+\newcommand*\circled[1]{%
+  \tikz[baseline=(char.base)]{\node[shape=circle, draw, inner sep=2pt] (char) {#1};}
+}
+
