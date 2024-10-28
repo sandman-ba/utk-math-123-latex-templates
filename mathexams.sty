@@ -111,3 +111,15 @@
   \end{centering}
   \endmdframed
 }
+\newcommand{\AnswerBoxLeft}[2]{%
+  \mdframed
+  \vspace{0.16in}
+  #1 \PrintSolutionsTF{\color{solution-color}#2}{}
+  \vspace{0.16in}
+  \endmdframed
+}
+
+% --------- Instructions ---------
+\newcommand{\tfinstructions}{Determine if the statement is True or False and fill in your answer choice completely.}
+\newcommand{\mcinstructions}{Multiple choice, fill in your choice completely.}
+\newcommand{\sainstructions}{Select all that apply and fill in your choices completely.}
