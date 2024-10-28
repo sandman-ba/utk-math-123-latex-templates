@@ -137,3 +137,57 @@
   \tikz[baseline=(char.base)]{\node[shape=circle, draw, inner sep=2pt] (char) {#1};}
 }
 
+% --------- Graphing Environment ---------
+\newenvironment{bgraph}{%
+  \begin{tikzpicture}
+    \begin{axis}[%
+      xmin = -7, xmax = 7, ymin = -7, ymax = 7,
+      domain = -7:7, restrict y to domain = -7:7,
+      clip = true, clip mode = individual,
+      xtick = {-8,...,8}, xticklabels = \empty,
+      ytick = {-8,...,8}, yticklabels = \empty,
+      axis x line = middle, axis y line = middle,
+      grid = major, xlabel = {\(x\)}, ylabel = {\(y\)},
+      xlabel style = {at = (current axis.right of origin), anchor = west},
+      ylabel style = {at = (current axis.above origin), anchor = south},
+      cycle list name = exotic, no marks, line width = 1pt,
+      width = \textwidth, height = \textwidth
+      ]
+}{%
+    \end{axis}
+  \end{tikzpicture}
+}
+
+\newenvironment{sgraph}{%
+  \begin{tikzpicture}
+    \begin{axis}[
+      xmin = -4, xmax = 4, ymin = -4, ymax = 4,
+      domain = -4:4, restrict y to domain = -4:4,
+      clip = true, clip mode = individual,
+      xtick = {-5,...,5}, xticklabels = \empty,
+      ytick = {-5,...,5}, yticklabels = \empty,
+      axis x line = middle, axis y line = middle,
+      grid = major, xlabel = {\(x\)}, ylabel = {\(y\)},
+      xlabel style = {at = (current axis.right of origin), anchor = west},
+      ylabel style = {at = (current axis.above origin), anchor = south},
+      cycle list name = exotic, no marks, line width = 1pt,
+      width = 1.8in, height = 1.8in
+      ]
+}{%
+    \end{axis}
+  \end{tikzpicture}
+}
+
+\newcommand{\intercepts}[4]{%
+  \begin{tabular}{ | >{\raggedleft\arraybackslash}m{0.7in} | >{\centering\arraybackslash}m{1.5in} | >{\centering\arraybackslash}m{1.5in} | }
+    \hline
+    & & \\
+    & \textbf{\(x\)-intercept} & \textbf{\(y\)-intercept} \\\hline
+    & & \\
+    \textbf{Line 1} & \PrintSolutionsT{\color{solution-color}\(#1\)} & \PrintSolutionsT{\color{solution-color}\(#2\)} \\
+    & & \\\hline
+    & & \\
+    \textbf{Line 2} & \PrintSolutionsT{\color{solution-color}\(#3\)} & \PrintSolutionsT{\color{solution-color}\(#4\)} \\
+    & & \\\hline
+  \end{tabular}
+}
