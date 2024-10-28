@@ -1,4 +1,4 @@
-\documentclass[twoside]{article}
+\documentclass[fleqn,twoside]{article}
 
 \usepackage{mathexams}
 
@@ -8,12 +8,17 @@
 %\SetExamUnit{Unit 0} % Set the type of exam: Unit X, Final Exam, ...
 %\SetExamLength{50 minutes} % Set the length of the exam
 
-%--------- Exam Versions and Solutions ---------
-\SetNumberOfVersions{2} % Set the number of different versions
-\SetVersionNumber{1} % Set the version number that you want to compile
+%--------- Exam Versions ---------
+\SetVariations{2} % Set the number of different versions
+\variant{1} % Set the version number that you want to compile
+\SetupExSheets{use-classes={Z,A}} % Only print questions of the chosen version.
+
 \SetVersionID{\vary{A}{B}} % Set the IDs of the version that you want to compile
+
+%--------- Show\Hide Solutions ---------
 \SetupExSheets{solution/print=true} % Show solutions (true) or don't (false)
-\SetupExSheets{use-classes={A,}} % Only print questions of the chosen version.
+%\SetupExSheets{solution/print=false} % Show solutions (true) or don't (false)
+
 
 \begin{document}
 
