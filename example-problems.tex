@@ -28,7 +28,7 @@
 
 \noindent\rule{\textwidth}{1pt}
 
-\begin{question}{3}
+\begin{question}[class=Z]{3}
   \label{question:multiple-choice}
   Multiple Choice question. \\
   Statement...
@@ -42,7 +42,7 @@
 
 \noindent\rule{\textwidth}{1pt}
 
-\begin{question}{3}
+\begin{question}[class=Z]{3}
   \label{question:select-all}
   Select All question. \\
   Statement...
@@ -56,7 +56,7 @@
 
 \noindent\rule{\textwidth}{1pt}
 
-\begin{question}{3}
+\begin{question}[class=Z]{3}
   \label{question:easy-problem}
   Easy problem with short work.
 \end{question}
@@ -72,7 +72,7 @@
 
 \noindent\rule{\textwidth}{1pt}
 
-\begin{question}{6}
+\begin{question}[class=Z]{6}
   \label{question:formula-problem}
   Problem that requires formula(s).
   \begin{tasks}(13)
@@ -109,7 +109,7 @@
 
 \noindent\rule{\textwidth}{1pt}
 
-\begin{question}{6}
+\begin{question}[class=Z]{6}
   \label{question:setup-system}
   Setup variables and system of equations.\\[0.2in]
   \begin{minipage}{0.45\textwidth}
@@ -124,24 +124,17 @@
 
 \newpage
 
-\begin{question}{6}
+\begin{question}[class=Z]{6}
   \label{question:graph-question}
-  Problem with graph.\\
+  Problem with large graph.\\
   \begin{minipage}{0.45\textwidth}
   \end{minipage}\hspace{\fill}%
   \begin{minipage}{0.5\textwidth}
     \begin{center}
-      \begin{tikzpicture}
-        \begin{axis}[%
-          xmin = -7, xmax = 7, ymin = -7, ymax = 7,%
-          xtick = {-8,...,8}, xticklabels = \empty,%
-          ytick = {-8,...,8}, yticklabels = \empty,%
-          axis x line = middle, axis y line = middle,%
-          grid, xlabel = {\(x\)}, ylabel = {\(y\)},%
-          width = \textwidth, height = \textwidth%
-          ]
-        \end{axis}
-      \end{tikzpicture}
+      \begin{bgraph}
+        \addplot {x + 1};
+        \addplot {2*x + 2};
+      \end{bgraph}
     \end{center}
   \end{minipage}
 \end{question}
