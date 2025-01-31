@@ -1,6 +1,4 @@
-\ProvidesPackage{mathexams}[2024/10/03 This package provides a format and useful commands to create exams for an undergraduate math course.]
-
-%% Copyright 2024 Bernardo Ameneyro
+%% Copyright 2025 Bernardo Ameneyro
 %
 % This work may be distributed and/or modified under the conditions of the LaTeX Project Public License.
 % The latest version of this license is in
@@ -11,24 +9,25 @@
 %
 % The Current Maintainer of this work is Bernardo Ameneyro.
 %
-% This work consists of the file(s): mathexams.sty
+% This work consists of the file(s): utkmath123macros.sty, utkmath123exam.cls, utkmath123la.cls, utkmath123ra.cls
+
+\ProvidesPackage{utkmath123macros}[2025/01/31 This package provides useful commands to create assignments for the math 123 course and possibly others.]
 
 
 %--------------- Required Packages ------------------
-\RequirePackage{exsheets}
-\RequirePackage{fancyhdr}
 \RequirePackage{amsmath,amssymb}
-\RequirePackage{wasysym}
-\RequirePackage{mdframed}
+\RequirePackage{array}
 \RequirePackage{tikz}
 \RequirePackage{pgfplots}
-\RequirePackage{array}
 \RequirePackage{enumitem}
+\RequirePackage{mdframed}
+\RequirePackage{wasysym}
+\RequirePackage{exsheets}
 
+%--------------- Questions and Solutions Style ------------------
 \definecolor{solution-color}{RGB}{0,0,255}
 \definecolor{rubric-color}{RGB}{255,0,0}
 
-%--------------- Questions and Solutions Style ------------------
 \DeclareInstance{exsheets-heading}{exam-problems}{default}{
   runin = true,
   points-pre-code = [,
@@ -40,22 +39,10 @@
   }
 }
 
-\SetupExSheets{%
-  counter-format = qu.%
-}
-
-\SetupExSheets[question]{%
-  headings = exam-problems%
-}
-
-\SetupExSheets[solution]{%
-  headings = empty,%
-  pre-body-hook = {\color{solution-color}}%
-}
-
-\SetupExSheets[points]{%
-  name = pt/s%
-}
+\SetupExSheets{counter-format = qu.}
+\SetupExSheets[question]{headings = exam-problems}
+\SetupExSheets[solution]{headings = empty, pre-body-hook = {\color{solution-color}}}
+\SetupExSheets[points]{name = pt/s}
 
 % ------------ Rubric Notes ------------
 \newcommand{\rubric}[1]{\PrintSolutionsT{\color{rubric-color}#1}}
