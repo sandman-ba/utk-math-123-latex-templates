@@ -11,7 +11,7 @@
 %
 % This work consists of the file(s): utkmath123macros.sty, utkmath123exam.cls, utkmath123la.cls, utkmath123ra.cls
 
-\NeedsTexFormat{LaTeX2e}
+\NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{utkmath123exam}[2025/01/31 This class provides style and format to create exams for the math 123 course and possibly others.]
 
 \LoadClass[fleqn,twoside]{article}
