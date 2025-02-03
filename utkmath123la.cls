@@ -42,4 +42,33 @@
   \fancyhead[R]{{LA \@title}}
 }
 
+\fancypagestyle{title-page-style}{
+  \fancyhead[L]{}
+  \fancyhead[C]{}
+  \fancyhead[R]{}
+  \renewcommand{\headrulewidth}{0pt}
+}
+
+\thispagestyle{firststyle}
+\begin{center}
+  {\Large Unit 4 Review Guide}
+
+\noindent\makebox[\linewidth]{\rule{\textwidth}{1pt}}
+
+\vspace{0.25in}
+
+\textsc{Name:} \underline{\hspace{2.5in}}
+\hfil
+\textsc{Net ID:} \underline{\hspace{1.5in}}@vols.utk.edu
+\end{center}
+\vspace{-8pt}
+\noindent\makebox[\linewidth]{\rule{\textwidth}{1pt}}
+
+\vspace{0.1in}
+
+\textbf{Directions:} Go through your notes and assignments from Unit 4 to answer the following questions.
+Your answers should help you identify what you need to focus on while studying the Unit 4 material for the Final Exam.
+
+\noindent\makebox[\linewidth]{\rule{\textwidth}{1pt}}
+
 \pagestyle{la-page-style}
