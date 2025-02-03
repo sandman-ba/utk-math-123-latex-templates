@@ -23,7 +23,7 @@
 
 %--------------- Course Information ------------------
 \newcommand{\GetCourse}{Math 123}
-\newcommand{\GetDirections}{Write directions with SetDirections command}
+\newcommand{\GetDirections}{Write directions with \texttt{\textbackslash SetDirections\{\}} command}
 \newcommand{\SetCourse}[1]{\renewcommand{\GetCourse}{#1}}
 \newcommand{\SetDirections}[1]{\renewcommand{\GetDirections}{#1}}
 
@@ -55,17 +55,16 @@
   \thispagestyle{title-page-style}
   \begin{center}
     {\Large LA \@title}
-    \noindent\makebox[\linewidth]{\rule{\textwidth}{1pt}}
+    \noindent\makebox[\linewidth]{\rule{\textwidth}{1pt}} \\
     \vspace{0.25in}
     \textsc{Name:} \underline{\hspace{2.5in}}
     \hfil
-    \textsc{Net ID:} \underline{\hspace{1.5in}}@vols.utk.edu
+    \textsc{Net ID:} \underline{\hspace{1.5in}}@vols.utk.edu \\
+    \noindent\makebox[\linewidth]{\rule{\textwidth}{1pt}} \\
+    \vspace{0.1in}
+    \textbf{Directions:} \GetDirections \\
+    \noindent\makebox[\linewidth]{\rule{\textwidth}{1pt}}
   \end{center}
-  \vspace{-8pt}
-  \noindent\makebox[\linewidth]{\rule{\textwidth}{1pt}}
-  \vspace{0.1in}
-  \textbf{Directions:} \GetDirections \\
-  \noindent\makebox[\linewidth]{\rule{\textwidth}{1pt}}
 }
 
 \pagestyle{la-page-style}
