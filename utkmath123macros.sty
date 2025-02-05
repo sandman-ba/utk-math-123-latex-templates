@@ -77,9 +77,57 @@
 }
 
 % --------- Instructions ---------
-\newcommand{\tfinstructions}{Determine if the statement is True or False and fill in your answer choice completely.}
-\newcommand{\mcinstructions}{Multiple choice, fill in your choice completely.}
-\newcommand{\sainstructions}{Select all that apply and fill in your choices completely.}
+\newcommand{\TrueFalseInstructions}{Determine if the statement is True or False and fill in your answer choice completely.}
+\newcommand{\MultipleChoiceInstructions}{Multiple choice, fill in your choice completely.}
+\newcommand{\SelectAllInstructions}{Select all that apply and fill in your choices completely.}
+\newcommand{\FormulaInstructions}{\textit{Select all formulas that are needed, fill in the formula(s) with the given values, and then solve.}}
+\newcommand{\RoundUnitsInstructions}{\textit{Round the final answer to 2 decimal places and include units with the final answer.}}
+\newcommand{\TVMInstructions}{\textit{Fill in the information you would enter into the TVM solver to solve this problem. Write ``alpha'' in the box corresponding to the variable you are solving for. \textbf{Do NOT solve.}}}
+
+% --------- Formulas ---------
+\newcommand{\Unit1Formulas}{
+  \mdframed
+  \vspace{0.1in}
+  \begin{tasks}(3)
+    \task[\textbf{A. }] \ \(I=Prt\)
+    \task[\textbf{B. }] \ \(A=P(1+rt)\)
+    \task[\textbf{C. }] \ \(A=P(1+i)^n\)
+    \task[\textbf{D. }] \ \(r_{\text{eff}}=\left(1+\dfrac{r}{m}\right)^m - 1\)
+    \task[\textbf{E. }] \ \(r_{\text{eff}} = \left(\dfrac{A}{P}\right)^{1/t} - 1\)
+    \task[\textbf{F. }] \ \(S = R\left[\dfrac{(1+i)^n-1}{i} \right]\)
+    \task[\textbf{G. }] \ \(P = R\left[\dfrac{1-(1+i)^{-n}}{i} \right]\)
+    \task[] \ \(i=\dfrac{r}{m}\), \ \(n=mt\)
+  \end{tasks}
+  \vspace{0.02in}
+  \endmdframed
+}
+
+% --------- TVM Solver Table ---------
+\newcommand{\TVMTable}[6]{
+  \renewcommand{\arraystretch}{1.2}
+  \begin{tabular}{|l|p{4.5cm}|l|l|p{4.5cm}|}
+    \hline
+    \begin{tabular}[c]{@{}l@{}}N =\\ \textit{(Periods)}\end{tabular}
+    & \PrintSolutionsT{\color{solution-color}#1}
+    & \multirow{3}{*}{}
+    & \begin{tabular}[c]{@{}l@{}}PMT = \\ \textit{(Payment)}\end{tabular}
+    & \PrintSolutionsT{\color{solution-color}#2}
+    \\ \cline{1-2} \cline{4-5}
+    \begin{tabular}[c]{@{}l@{}}I\% = \\ \textit{(Annual Rate)}\end{tabular}
+    & \PrintSolutionsT{\color{solution-color}#3}
+    &
+    & \begin{tabular}[c]{@{}l@{}}FV = \\ \textit{(Future Value)}\end{tabular}
+    & \PrintSolutionsT{\color{solution-color}#4}
+    \\ \cline{1-2} \cline{4-5}
+    \begin{tabular}[c]{@{}l@{}}PV = \\ \textit{(Present Value)}\end{tabular}
+    & \PrintSolutionsT{\color{solution-color}#5}
+    &
+    & \begin{tabular}[c]{@{}l@{}}P/Y and C/Y = \\ \textit{(compounding)}\end{tabular}
+    & \PrintSolutionsT{\color{solution-color}#6}
+    \\ \hline
+  \end{tabular}
+  \renewcommand{\arraystretch}{1}
+}
 
 % --------- Augmented Matrix ---------
 \newenvironment{amatrix}[2]{%
