@@ -1,16 +1,3 @@
-%% Copyright 2025 Bernardo Ameneyro
-%
-% This work may be distributed and/or modified under the conditions of the LaTeX Project Public License.
-% The latest version of this license is in
-%   https://www.latex-project.org/lppl.txt
-% and version 1.3c or later is part of all distributions of LaTeX version 2008 or later.
-%
-% This work has the LPPL maintenance status `maintained'.
-%
-% The Current Maintainer of this work is Bernardo Ameneyro.
-%
-% This work consists of the file(s): utkmath123macros.sty, utkmath123exam.cls, utkmath123la.cls, utkmath123ra.cls
-
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{utkmath123la}[2025/01/31 This class provides style and format to create learning activities for the math 123 course and possibly others.]
 

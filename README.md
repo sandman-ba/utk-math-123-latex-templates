@@ -16,4 +16,4 @@ This package largely builds upond the [exsheets](https://ctan.org/pkg/exsheets) 
 The `example-*.tex` files contain templates for the different assignment types that you can use to create your own documents.
 
 ## License
-Most of this work is licensed under the [MIT license](LICENSE). The files ending with `.cls` and `utkmath123macros.sty` are licensed under the [LPPL](https://www.latex-project.org/lppl.txt).
+This work is licensed under the under the [LPPL](https://www.latex-project.org/lppl.txt).
