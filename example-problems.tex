@@ -189,10 +189,12 @@
     \begin{center}
       \begin{largegraphqone}
         \addplot+[<->, samples=100,] {x} node[pos=1,above] {\(L_{1}\)};
-        \addplot+[<->,dashed, samples=100] {-2*x + 2} node[pos=0,above] {\(L_{2}\)};
-        \pgfplotsset{cycle list shift=-2}
-        \addplot+[samples=100, draw=none, fill, fill opacity=0.2] {x} |- cycle;
-        \addplot+[samples=100, draw=none, fill, fill opacity=0.2] {-2*x + 2} -- (\pgfkeysvalueof{/pgfplots/xmin},\pgfkeysvalueof{/pgfplots/ymin}) |- cycle;
+        \addplot+[<->,dashed, samples=100] {-2*x + 6} node[pos=0,above] {\(L_{2}\)};
+        \PrintSolutionsT{
+          \pgfplotsset{cycle list shift=-2}
+          \addplot+[samples=100, draw=none, fill, fill opacity=0.2] {x} |- cycle;
+          \addplot+[samples=100, draw=none, fill, fill opacity=0.2] {-2*x + 6} -- (\pgfkeysvalueof{/pgfplots/xmin},\pgfkeysvalueof{/pgfplots/ymin}) |- cycle;
+        }
       \end{largegraphqone}
     \end{center}
   \end{minipage}
