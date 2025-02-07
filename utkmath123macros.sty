@@ -98,20 +98,43 @@
 
 
 % --------- Formulas ---------
-\newcommand{\Unit1Formulas}{
+\newcommand{\UnitOneFormulas}{
   \mdframed
   \vspace{0.1in}
-  \begin{tasks}(3)
+  \begin{tasks}[after-item-skip={0.08in}](3)
     \task[\textbf{A. }] \ \(I=Prt\)
     \task[\textbf{B. }] \ \(A=P(1+rt)\)
     \task[\textbf{C. }] \ \(A=P(1+i)^n\)
     \task[\textbf{D. }] \ \(r_{\text{eff}}=\left(1+\dfrac{r}{m}\right)^m - 1\)
     \task[\textbf{E. }] \ \(r_{\text{eff}} = \left(\dfrac{A}{P}\right)^{1/t} - 1\)
+    \task[] \hspace{-0.2in}\(i=\dfrac{r}{m}\), \ \(n=mt\)
     \task[\textbf{F. }] \ \(S = R\left[\dfrac{(1+i)^n-1}{i} \right]\)
     \task[\textbf{G. }] \ \(P = R\left[\dfrac{1-(1+i)^{-n}}{i} \right]\)
-    \task[] \ \(i=\dfrac{r}{m}\), \ \(n=mt\)
   \end{tasks}
   \vspace{0.02in}
+  \endmdframed
+}
+
+\newcommand{\AllFormulas}{
+  \mdframed
+  \vspace{0.1in}
+  \begin{tasks}[after-item-skip={0.08in}](3)
+    \task[\textbf{A. }] \ \(I=Prt\)
+    \task[\textbf{B. }] \ \(A=P(1+rt)\)
+    \task[\textbf{C. }] \ \(A=P(1+i)^n\)
+    \task[\textbf{D. }] \ \(r_{\text{eff}}=\left(1+\dfrac{r}{m}\right)^m - 1\)
+    \task[\textbf{E. }] \ \(r_{\text{eff}} = \left(\dfrac{A}{P}\right)^{1/t} - 1\)
+    \task[] \hspace{-0.2in}\(i=\dfrac{r}{m}\), \ \(n=mt\)
+    \task[\textbf{F. }] \ \(S = R\left[\dfrac{(1+i)^n-1}{i} \right]\)
+    \task*[\textbf{G. }] \ \(P = R\left[\dfrac{1-(1+i)^{-n}}{i} \right]\)
+    \task[\textbf{H. }] \ \(A^{-1} = \dfrac{1}{ad-bc}\begin{bmatrix} d & -b \\ -c & a\end{bmatrix}\)
+    \task*[] \hspace{-0.2in}(if \(ad-bc\not=0\))
+    \task[\textbf{I. }] \ \(p_1 = \dfrac{d-c}{a+d-b-c}\)
+    \task[\textbf{J. }] \ \(q_1 = \dfrac{d-b}{a+d-b-c}\)
+    \task[\textbf{K. }] \ \(E = \dfrac{ad-bc}{a+d-b-c}\)
+    \task[\textbf{L. }] \ \(E = PAQ\)
+    \task[\textbf{M. }] \ \(E = \dfrac{1}{Z}-k\)
+  \end{tasks}
   \endmdframed
 }
 
