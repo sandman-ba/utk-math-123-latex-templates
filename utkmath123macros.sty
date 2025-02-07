@@ -4,6 +4,7 @@
 %--------------- Required Packages ------------------
 \RequirePackage{amsmath,amssymb}
 \RequirePackage{array}
+\RequirePackage{multirow}
 \RequirePackage{tikz}
 \RequirePackage{pgfplots}
 \RequirePackage{enumitem}
@@ -31,9 +32,11 @@
 \SetupExSheets[solution]{headings = empty, pre-body-hook = {\color{solution-color}}}
 \SetupExSheets[points]{name = pt/s}
 
-% ------------ Rubric Notes ------------
+% ------------ Rubric and Solution Notes ------------
 \newcommand{\rubric}[1]{\PrintSolutionsT{\color{rubric-color}#1}}
 \newcommand{\mrubric}[1]{\PrintSolutionsT{\reversemarginpar\marginpar[\raggedleft\color{rubric-color}#1]{\raggedright\color{rubric-color}#1}}}
+\newcommand{\answer}[1]{\PrintSolutionsT{\color{solution-color}#1}}
+\newcommand{\FillBlank}[2][2]{\PrintSolutionsTF{\underline{\hspace{0.15in}\answer{#2}\hspace{0.15in}}}{\blank[scale={#1}]{#2}}}
 
 % --------- Multiple Choice and Select All ---------
 \newcommand{\choice}{{\Large\(\Circle\)}}
@@ -47,18 +50,18 @@
 }
 
 % --------- Answer Box ---------
-\newcommand{\AnswerBox}[3]{%
+\newcommand{\AnswerBox}[3][0.5in]{%
   \mdframed
   \begin{centering}
-  #1\\
-  \PrintSolutionsTF{\vspace{0.1in} \color{solution-color}#3\\ \vspace{0.1in}}{\vspace{#2}}
+  #2\\
+  \PrintSolutionsTF{\vspace{0.1in} \color{solution-color}#3\\ \vspace{0.1in}}{\vspace{#1}}
   \end{centering}
   \endmdframed
 }
 \newcommand{\AnswerBoxLeft}[2]{%
   \mdframed
   \vspace{0.16in}
-  #1 \PrintSolutionsTF{\color{solution-color}#2}{}
+  #1 \answer{#2}
   \vspace{0.16in}
   \endmdframed
 }
@@ -70,6 +73,7 @@
 \newcommand{\FormulaInstructions}{\textit{Select all formulas that are needed, fill in the formula(s) with the given values, and then solve.}}
 \newcommand{\RoundUnitsInstructions}{\textit{Round the final answer to 2 decimal places and include units with the final answer.}}
 \newcommand{\TVMInstructions}{\textit{Fill in the information you would enter into the TVM solver to solve this problem. Write ``alpha'' in the box corresponding to the variable you are solving for. \textbf{Do NOT solve.}}}
+\newcommand{\AmortizationInstructions}{\textit{Fill in the next row of the amortization schedule. Round your final answers to 2 decimal places.}}
 \newcommand{\MethodOfCornersInstructions}{
   Solve the LP Problem using the method of corners.
   \textbf{Shade} the graph according to the given system of inequalities and label the \textbf{Feasible Region (S)}.
@@ -143,27 +147,45 @@
 % --------- TVM Solver Table ---------
 \newcommand{\TVMTable}[6]{
   \renewcommand{\arraystretch}{1.2}
-  \begin{tabular}{|l|p{4.5cm}|l|l|p{4.5cm}|}
+  \begin{center}
+  \begin{tabular}{|l|m{4.5cm}|l|l|m{4.5cm}|}
     \hline
     \begin{tabular}[c]{@{}l@{}}N =\\ \textit{(Periods)}\end{tabular}
-    & \PrintSolutionsT{\color{solution-color}#1}
+    & \answer{#1}
     & \multirow{3}{*}{}
     & \begin{tabular}[c]{@{}l@{}}PMT = \\ \textit{(Payment)}\end{tabular}
-    & \PrintSolutionsT{\color{solution-color}#2}
+    & \answer{#2}
     \\ \cline{1-2} \cline{4-5}
     \begin{tabular}[c]{@{}l@{}}I\% = \\ \textit{(Annual Rate)}\end{tabular}
-    & \PrintSolutionsT{\color{solution-color}#3}
+    & \answer{#3}
     &
     & \begin{tabular}[c]{@{}l@{}}FV = \\ \textit{(Future Value)}\end{tabular}
-    & \PrintSolutionsT{\color{solution-color}#4}
+    & \answer{#4}
     \\ \cline{1-2} \cline{4-5}
     \begin{tabular}[c]{@{}l@{}}PV = \\ \textit{(Present Value)}\end{tabular}
-    & \PrintSolutionsT{\color{solution-color}#5}
+    & \answer{#5}
     &
     & \begin{tabular}[c]{@{}l@{}}P/Y and C/Y = \\ \textit{(compounding)}\end{tabular}
-    & \PrintSolutionsT{\color{solution-color}#6}
+    & \answer{#6}
     \\ \hline
   \end{tabular}
+  \end{center}
+  \renewcommand{\arraystretch}{1}
+}
+
+% --------- Amortization Table ---------
+\newenvironment{amortization}{
+  \renewcommand{\arraystretch}{2.0}
+  \begin{center}
+  \begin{tabular}{| >{\centering}m{0.1\linewidth} | >{\centering}m{0.17\linewidth} | >{\centering}m{0.17\linewidth} | >{\centering}m{0.18\linewidth} | >{\centering\arraybackslash}m{0.19\linewidth} |}
+    \hline
+    \textbf{End of Period} & \textbf{Interest Charged} & \textbf{Repayment Made} & \textbf{Payment Toward Principal} & \textbf{Outstanding Principal} \\
+    \hline
+    \hline
+}{
+    \hline
+  \end{tabular}
+  \end{center}
   \renewcommand{\arraystretch}{1}
 }
 
@@ -188,7 +210,7 @@
 }
 
 % --------- Graphing Environment ---------
-\newenvironment{bgraph}{%
+\newenvironment{largegraph}{%
   \begin{tikzpicture}
     \begin{axis}[%
       xmin = -7.5, xmax = 7.5, ymin = -7.5, ymax = 7.5,
@@ -208,7 +230,7 @@
   \end{tikzpicture}
 }
 
-\newenvironment{bgraphq1}{%
+\newenvironment{largegraphqone}{%
   \begin{tikzpicture}
     \begin{axis}[%
       xmin = -1.5, xmax = 7.5, ymin = -1.5, ymax = 7.5,
@@ -228,7 +250,7 @@
   \end{tikzpicture}
 }
 
-\newenvironment{sgraph}{%
+\newenvironment{smallgraph}{%
   \begin{tikzpicture}
     \begin{axis}[
       xmin = -4.5, xmax = 4.5, ymin = -4.5, ymax = 4.5,
@@ -249,15 +271,17 @@
 }
 
 \newcommand{\intercepts}[4]{%
+  \begin{center}
   \begin{tabular}{ | >{\raggedleft\arraybackslash}m{0.7in} | >{\centering\arraybackslash}m{1.5in} | >{\centering\arraybackslash}m{1.5in} | }
     \hline
     & & \\
     & \textbf{\(x\)-intercept} & \textbf{\(y\)-intercept} \\\hline
     & & \\
-    \textbf{Line 1} & \PrintSolutionsT{\color{solution-color}\(#1\)} & \PrintSolutionsT{\color{solution-color}\(#2\)} \\
+    \textbf{Line 1} & \answer{\(#1\)} & \answer{\(#2\)} \\
     & & \\\hline
     & & \\
-    \textbf{Line 2} & \PrintSolutionsT{\color{solution-color}\(#3\)} & \PrintSolutionsT{\color{solution-color}\(#4\)} \\
+    \textbf{Line 2} & \answer{\(#3\)} & \answer{\(#4\)} \\
     & & \\\hline
   \end{tabular}
+  \end{center}
 }
