@@ -31,6 +31,7 @@
 \begin{question}[class=Z]{3}
   \label{question:multiple-choice}
   \MultipleChoiceInstructions \\
+
   Multiple Choice question.
   \begin{tasks}(4)
     \task[\choice] \ Choice 1
@@ -45,6 +46,7 @@
 \begin{question}[class=Z]{3}
   \label{question:select-all}
   \SelectAllInstructions \\
+
   Select All question.
   \begin{tasks}(4)
     \task[\selectall] \ Choice 1
@@ -57,16 +59,22 @@
 \noindent\rule{\textwidth}{1pt}
 
 \begin{question}[class=Z]{3}
+  \FillBlank{answer} Blank question
+\end{question}
+
+\noindent\rule{\textwidth}{1pt}
+
+\begin{question}[class=Z]{3}
   \label{question:easy-problem}
   Easy problem with short work.
 \end{question}
-\begin{minipage}{0.75\textwidth}
+\begin{minipage}{0.70\textwidth}
   \begin{solution}
     Work.
   \end{solution}
 \end{minipage}\hspace{\fill}%
 \begin{minipage}{0.25\textwidth}
-  \AnswerBox{Final Answer:}{0.5in}{Correct answer}
+  \AnswerBox{Final Answer:}{Correct answer}
   \vspace{0.1in}
 \end{minipage}
 
@@ -74,42 +82,65 @@
 
 \begin{question}[class=Z]{6}
   \label{question:formula-problem}
-  Problem that requires formula(s).
-  \begin{tasks}(13)
+  You want to start a savings account for a graduation trip that you wish to take in 5 years.
+  Your plan is to deposit \(\$ 250\) each month for the first 4 years into an account paying interest at a rate of \(3.1\%\) per year compounded monthly.
+  Then, for the last year you won't make any withdrawals or deposits.
+  How much will you have saved in the account at the end of the 5 years?\\
+  \FormulaInstructions~\RoundUnitsInstructions
+  \begin{tasks}(7)
     \task[\selectall] \ A
     \task[\selectall] \ B
-    \task[\selectall] \ C
+    \task[\correctselectall] \ C
     \task[\selectall] \ D
     \task[\selectall] \ E
-    \task[\selectall] \ F
+    \task[\correctselectall] \ F
     \task[\selectall] \ G
-    \task[\correctselectall] \ H
-    \task[\selectall] \ I
-    \task[\selectall] \ J
-    \task[\selectall] \ K
-    \task[\selectall] \ L
-    \task[\selectall] \ M
   \end{tasks}
+  \mrubric{Margin rubric}
 \end{question}
-\begin{minipage}{0.75\textwidth}
+\begin{minipage}{0.70\textwidth}
   \begin{solution}
-    \[A^{-1} = \dfrac{1}{ad - bc}
-      \begin{bmatrix}
-        d & -b \\
-        -c & a
-      \end{bmatrix}
-    \]
+    \begin{align*}
+      S = 250 \left[ \dfrac{\left(1 + \frac{0.031}{12} \right)^{12\cdot4} - 1}{\frac{0.031}{12}} \right] &= 12,758.21477 \\
+      A = 12,758.21477 \left( 1 + \dfrac{0.031}{12} \right)^{12\cdot1} &= 13,159.38756
+    \end{align*}
   \end{solution}
+  \rubric{Rubric info if needed}
 \end{minipage}\hspace{\fill}%
 \begin{minipage}{0.25\textwidth}
-  \vspace{0.5in}
-  \AnswerBox{Final Answer:}{0.5in}{Correct answer}
+  \vspace{1.5in}
+  \AnswerBox{Final Answer:}{\(\$13,159.39\)}
   \vspace{0.1in}
 \end{minipage}
 
 \noindent\rule{\textwidth}{1pt}
 
 
+\begin{question}[class=Z]{6}
+  \label{question:tvm-table}
+  You are buying a house for \(\$300,000\) and you secured a loan to finance the remaining cost after a down payment of \(10\%\).
+  The loan will be paid over a period of 20 years and it accrues interest at a rate of \(6.5\%\) per year compounded monthly.
+  How much will you pay each month? \\
+  \TVMInstructions \\
+
+  \TVMTable{\(20\cdot12=240\)}{alpha}{6.5}{0}{270,000}{12 or monthly}
+\end{question}
+
+\noindent\rule{\textwidth}{1pt}
+
+\begin{question}[class=Z]{6}
+  \label{question:amortization-table}
+    In order to buy a car Larry financed \(\$100,000\) through a 10 year loan that charges interest at a rate of \(5.7\%\) per year compounded monthly. \\
+    \AmortizationInstructions \\
+
+    \begin{amortization}
+    0 & -- & -- & -- & \(100,000\) \\
+    \hline
+    1 & \(475.00\) & \(1,095.20\)  & \(620.20\)  & \(99,379.80\)  \\
+    \hline
+    2 & \answer{\(472.05\)} & \answer{\(1,095.20\)} & \answer{\(623.16\)} & \answer{\(98,756.65\)} \\
+    \end{amortization}
+\end{question}
 
 \noindent\rule{\textwidth}{1pt}
 
@@ -117,10 +148,10 @@
   \label{question:setup-system}
   Setup variables and system of equations.\\[0.2in]
   \begin{minipage}{0.45\textwidth}
-    \AnswerBox{Define Variables:}{0.5in}{Correct answer}
+    \AnswerBox[1.0in]{Define Variables:}{Correct answer}
   \end{minipage}\hspace{\fill}%
   \begin{minipage}{0.45\textwidth}
-    \AnswerBox{System of Equations:}{0.5in}{Correct answer}
+    \AnswerBox[1.0in]{System of Equations:}{Correct answer}
   \end{minipage}
 \end{question}
 
@@ -135,18 +166,59 @@
   \end{minipage}\hspace{\fill}%
   \begin{minipage}{0.5\textwidth}
     \begin{center}
-      \begin{bgraph}
+      \begin{largegraph}
         \addplot+[<->, samples=100,] {x} node[pos=1,above] {\(L_{1}\)};
         \addplot+[<->,dashed, samples=100] {-2*x} node[pos=0,above] {\(L_{2}\)};
         \pgfplotsset{cycle list shift=-2}
         \addplot+[samples=100, draw=none, fill, fill opacity=0.2] {x} |- cycle;
         \addplot+[samples=100, draw=none, fill, fill opacity=0.2] {-2*x} -- (\pgfkeysvalueof{/pgfplots/xmin},\pgfkeysvalueof{/pgfplots/ymin}) |- cycle;
-      \end{bgraph}
+      \end{largegraph}
     \end{center}
   \end{minipage}
 \end{question}
 
 \noindent\rule{\textwidth}{1pt}
+
+
+\begin{question}[class=Z]{6}
+  \label{question:q-one-graph-question}
+  Problem with large quadrant 1 graph.\\
+  \begin{minipage}{0.45\textwidth}
+  \end{minipage}\hspace{\fill}%
+  \begin{minipage}{0.5\textwidth}
+    \begin{center}
+      \begin{largegraphqone}
+        \addplot+[<->, samples=100,] {x} node[pos=1,above] {\(L_{1}\)};
+        \addplot+[<->,dashed, samples=100] {-2*x + 2} node[pos=0,above] {\(L_{2}\)};
+        \pgfplotsset{cycle list shift=-2}
+        \addplot+[samples=100, draw=none, fill, fill opacity=0.2] {x} |- cycle;
+        \addplot+[samples=100, draw=none, fill, fill opacity=0.2] {-2*x + 2} -- (\pgfkeysvalueof{/pgfplots/xmin},\pgfkeysvalueof{/pgfplots/ymin}) |- cycle;
+      \end{largegraphqone}
+    \end{center}
+  \end{minipage}
+\end{question}
+
+\noindent\rule{\textwidth}{1pt}
+
+
+\begin{question}[class=Z]
+  \label{question:small-graph-question}
+  Multipart problem
+  \begin{enumerate}[label = \textbf{\alph*)}]
+    \item{} [\addpoints{4}] Intercept Problem \\
+      \intercepts{(-1,0)}{(0,1)}{(2,0)}{(0,1)}
+    \item{} [\addpoints{3}] Problem with small graphs\\
+      \begin{tasks}(4)
+        \task[\choice] \ \(\begin{smallgraph} \addplot {x + 1}; \addplot {2*x + 2}; \end{smallgraph}\)
+        \task[\correctchoice] \ \(\begin{smallgraph} \addplot {x + 1}; \addplot {-1/2*x + 1}; \end{smallgraph}\)
+        \task[\choice] \ \(\begin{smallgraph} \addplot {-x + 1}; \addplot {-1/2*x + 1}; \end{smallgraph}\)
+        \task[\choice] \ \(\begin{smallgraph} \addplot {-x + 1}; \addplot {2*x + 2}; \end{smallgraph}\)
+      \end{tasks}
+  \end{enumerate}
+\end{question}
+
+\noindent\rule{\textwidth}{1pt}
+
 
 \begin{question}[class=Z]{6}
   Problem with tableau.\\
